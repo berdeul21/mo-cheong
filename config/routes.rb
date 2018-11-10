@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  resources :invitations
+  root 'pages#home'
+  resources :invitations do
+    post :check_coupon, on: :collection
+  end
 end

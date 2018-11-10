@@ -1,0 +1,20 @@
+= form_tag '#', class: 'form-inline' do
+  = text_field_tag :coupon_code, params[:coupon_code], class: 'form-control'
+  = submit_tag '청첩장 만들기', id: 'check-coupon-btn'
+
+:javascript
+  $('#check-coupon-btn').on('click', function(e){
+    e.preventDefault();
+
+    $.post(
+        "#{check_coupon_invitations_path}",
+        { coupon_code : $('#coupon_code').val() }
+      )
+      .done(function(r) {
+        if( r.code == 200){
+          window.location.href = "#{new_invitation_path}";
+        }else{
+          alert( r.msg );
+        }
+      });
+  });

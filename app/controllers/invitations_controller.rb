@@ -1,28 +1,17 @@
 class InvitationsController < ApplicationController
   before_action :set_invitation, only: [:show, :edit, :update, :destroy]
 
-  # GET /invitations
-  # GET /invitations.json
-  def index
-    @invitations = Invitation.all
-  end
-
-  # GET /invitations/1
-  # GET /invitations/1.json
   def show
   end
 
-  # GET /invitations/new
   def new
+    redirect_to root_path unless session[:coupon_code].present?
     @invitation = Invitation.new
   end
 
-  # GET /invitations/1/edit
   def edit
   end
 
-  # POST /invitations
-  # POST /invitations.json
   def create
     @invitation = Invitation.new(invitation_params)
 
@@ -37,8 +26,6 @@ class InvitationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /invitations/1
-  # PATCH/PUT /invitations/1.json
   def update
     respond_to do |format|
       if @invitation.update(invitation_params)
@@ -51,8 +38,6 @@ class InvitationsController < ApplicationController
     end
   end
 
-  # DELETE /invitations/1
-  # DELETE /invitations/1.json
   def destroy
     @invitation.destroy
     respond_to do |format|
@@ -61,13 +46,20 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def check_coupon
+    if CouponCode.validate(params["coupon_code"])
+      session[:coupon_code] = params["coupon_code"]
+      render json: { code: 200 }
+    else
+      render json: { code: 204, msg: '유효하지 않은 쿠폰 코드입니다.'}
+    end
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_invitation
       @invitation = Invitation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
       # params.fetch(:invitation, {})
       params.require(:invitation).permit(:d_day, :title, :thumb, :description, :directions, :contact_bride, :contact_groom, :contact_other)

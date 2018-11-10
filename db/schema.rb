@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20181110022340) do
 
-  create_table "invitations", force: :cascade do |t|
+  create_table "invitations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "d_day"
     t.string "title"
     t.string "thumb"
