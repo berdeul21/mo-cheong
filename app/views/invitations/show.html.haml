@@ -1,0 +1,12 @@
+%p= @invitation.d_day
+%p= @invitation.title
+%p= @invitation.thumb
+%p= @invitation.description
+%p= @invitation.directions
+%p= @invitation.contact_bride
+%p= @invitation.contact_groom
+%p= @invitation.contact_other
+
+= link_to 'Edit', edit_invitation_path(@invitation)
+\|
+= link_to 'Back', invitations_path

@@ -1,24 +1,15 @@
-# README
+# 모바일 청첩장 만들기
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 주요기능
 
-Things you may want to cover:
+* 정보를 입력하여 모바일 청첩장을 만들 수 있다.
+* 발급받은 쿠폰을 입력하여 모바일 청첩장을 만들 수 있다.
 
-* Ruby version
+## 추가될 기능
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 입력한 결혼식 다음날 모바일 청첩장은 삭제된다.
+* 관리자에서 쿠폰을 발행한다.
+* 1개의 쿠폰당 닉네임과 비밀번호를 부여하여 청첩장을 관리할 수 있다.
+* 닉네임을 url로 사용할 수 있다.
+* 1개의 쿠폰은 1개의 청첩장만 만들 수 있다.
+* 청첩장의 디자인을 고를 수 있다.
