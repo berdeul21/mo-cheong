@@ -22,8 +22,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: mysql2
+  database: mocheong_test
+  username: <%= ENV['DB_USER_NAME'] %>
+  password: <%= ENV['DB_USER_PW'] %>
+  encoding: utf8
+  host: localhost
+  timeout: 5000
 
 production:
   <<: *default
