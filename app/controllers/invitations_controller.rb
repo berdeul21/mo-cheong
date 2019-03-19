@@ -5,7 +5,7 @@ class InvitationsController < ApplicationController
   end
 
   def new
-    redirect_to root_path unless session[:coupon_code].present?
+    redirect_to root_path if session[:coupon_code].nil? || !CouponCode.validate(session[:coupon_code])
     @invitation = Invitation.new
   end
 
