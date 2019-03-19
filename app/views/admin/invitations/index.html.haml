@@ -1,0 +1,16 @@
+.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+	%h1.h2 Invitation Index
+
+%table.table
+	%thead.thead-dark
+		%tr
+			%th{:scope => "col"} #
+			%th{:scope => "col"} Title
+			%th{:scope => "col"} Created At
+	%tbody
+		- count = @invitations.count
+		- @invitations.each_with_index do |e, i|
+			%tr
+				%td= count - i
+				%td= e.title
+				%td= l e.created_at

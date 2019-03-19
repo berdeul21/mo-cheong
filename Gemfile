@@ -29,7 +29,8 @@ gem 'coupon_code'
 # views
 gem 'sass-rails', '~> 5.0'
 gem 'haml-rails', '~> 1.0'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+# gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap_form'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
