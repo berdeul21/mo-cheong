@@ -12,6 +12,9 @@ gem 'rails', '~> 5.1.6'
 gem 'sqlite3'
 gem 'mysql2'
 
+# auth
+gem 'devise'
+
 # uploads
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
