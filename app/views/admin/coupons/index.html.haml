@@ -1,0 +1,21 @@
+.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+  %h1.h2 Coupon Index
+
+.wall
+  = form_for [:admin, @coupon], :remote => true do |f|
+    .actions
+      = f.submit "Create Coupon"
+
+%table.table
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Code
+      %th{:scope => "col"} Created At
+  %tbody#coupons
+    - count = @coupons.count
+    - @coupons.each_with_index do |e, i|
+      %tr
+        %td= count - i
+        %td= e.code
+        %td= l e.created_at

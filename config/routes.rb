@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   namespace :admin, :path => 'nimda' do
     root 'invitations#index'
     resources :invitations
+    resources :coupons, only: [:index, :create]
 	end
 end

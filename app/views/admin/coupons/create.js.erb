@@ -1,0 +1,3 @@
+alert("쿠폰이 생성되었습니다. <%= @coupon.code %>")
+
+$("#coupons").prepend("<tr><td><%= Coupon.count %></td><td><%= @coupon.code %></td><td><%= l(@coupon.created_at) %></td></tr>");
